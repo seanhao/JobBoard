@@ -2,6 +2,7 @@
 <head>
   <title>{% block title %}Blog{% endblock %}</title>
   <style>
+
     ul {
       list-style-type: none;
       margin: 0;
@@ -24,6 +25,36 @@
       font-size: 1.2em;
     }
 
+    #customers
+    {
+      font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    table
+    {
+      width:100%;
+      table-layout: fixed;
+      word-wrap:break-word;
+      border-collapse:collapse;
+
+    }
+    table tr td {
+      border: 1px solid black;
+      text-align: center; 
+      
+    }
+
+    th {
+      border: 1px solid black;
+      text-align: center; 
+    }
+
+    a{
+      text-decoration: none;
+    }
+
     #posts {
       margin: 0;
       padding: 0;
@@ -35,6 +66,7 @@
       padding-bottom: 20px;
       border-bottom: 1px solid #eee;
       list-style: none;
+
     }
 
     #posts li:last-child {
