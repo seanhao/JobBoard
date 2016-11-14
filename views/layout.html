@@ -2,7 +2,17 @@
 <head>
   <title>{% block title %}Blog{% endblock %}</title>
   <style>
-
+	#Top{
+		background: #000000;
+		color: #FF44AA;
+		height:50px;
+		font-size: 1.5em;
+		font-family:微軟正黑體;
+		font-weight:bold;	
+		vertical-align:50%;
+		line-height:200%;
+	}
+	
     ul {
       list-style-type: none;
       margin: 0;
@@ -11,14 +21,19 @@
 
     li {
       display: inline;
+	
     }
     body {
-      padding: 80px;
+	  margin:0;
+      padding: 0px;
       font: 16px Helvetica, Arial;
     }
 
     h1 {
-      font-size: 2em;
+      font-size: 3em;
+	  font-family:微軟正黑體;
+	  color: #FF0000;
+	  text-align:center;
     }
 
     h2 {
@@ -27,7 +42,7 @@
 
     #customers
     {
-      font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+      font-family:"Trebuchet MS", 微軟正黑體, Helvetica, sans-serif;
       width:100%;
       border-collapse:collapse;
     }
@@ -38,16 +53,17 @@
       table-layout: fixed;
       word-wrap:break-word;
       border-collapse:collapse;
-
+	  background-color:#FFFFFF;
+	  color:#CC0000;
     }
     table tr td {
-      border: 1px solid black;
+      border: 3px solid black;
       text-align: center; 
       
     }
 
     th {
-      border: 1px solid black;
+      border: 3px solid black;
       text-align: center; 
     }
 
@@ -91,6 +107,7 @@
     input[type=text] {
       width: 500px;
     }
+	
   </style>
 </head>
 <body>
