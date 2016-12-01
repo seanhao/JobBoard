@@ -1,10 +1,17 @@
-{% extends 'layout.html' %}
+{% extends 'edit_layout.html' %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+<div id="Top">
+	<li><a href="list.html" style="color:#FF44AA">主頁</a></li>
+	<li><a href="news.asp" style="color:#FF44AA">我的資料</a></li>
+
+	<li style="float:right"><a class="active" href="#about" style="color:#FF44AA">註冊</a></li>
+    <li style="float:right"><a class="active" href="" style="color:#FF44AA">登入&nbsp&nbsp</a></li>
+</div>
   <h1>編輯頁面</h1>
-  <form action="/post/{{post._id.toString()}}" method="post">
+  <form action="/post/{{post._id.toString()}}" method="post" id="edit">
       <p><input type="text" placeholder="公司名稱" name="company"       value="{{post.company}}"></p>
     <p><input type="text" placeholder="工作職缺" name="job"             value="{{post.job}}"></p>
     <p><input type="text" placeholder="工作內容" name="task"            value="{{post.task}}"></p>

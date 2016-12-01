@@ -12,8 +12,9 @@
     <li style="float:right"><a class="active" href="" style="color:#FF44AA">登入&nbsp&nbsp</a></li>
 </div>
   <h1>人力銀行</h1>
-  <p>目前有 <strong>{{ posts.length }}</strong> 個新工作!</p>
-  <p><a href="/post/new">發布新工作</a></p>
+  <p id="newjob">目前有 <strong>{{ posts.length }}</strong> 個新工作!</p>
+  <a href="/post/new" id="create">
+	<input type="button" value="發布新工作" name="create new job" style="width:90px;height:30px;background-color:#02F78E"></a>
   <ul id="posts">
     <table  id="customers">
           <tr>
