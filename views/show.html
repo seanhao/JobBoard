@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'show_layout.html' %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
@@ -12,10 +12,10 @@
 </div>
   <h1>{{ post.title }}</h1>
   <div id="requirement">
-	<ul>
+	<p>
 	公司名稱：{{ post.company }}
-	</ul>
-	<ul>工作職缺：{{ post.job }}</ul>
+	</p>
+	<p>工作職缺：{{ post.job }}</p>
 	<p>工作內容：{{ post.task }}</p>
 	<p>徵求條件：{{ post.condition }}</p>
 	<p>工作地點：{{ post.workplace }}</p>
