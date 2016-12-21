@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <p>公司名稱：{{ post.company }}</p>
+  <p>工作職缺：{{ post.job }}</p>
+  <p>工作內容：{{ post.task }}</p>
+  <p>徵求條件：{{ post.condition }}</p>
+  <p>工作地點：{{ post.workplace }}</p>
+  <p>工作時間：{{ post.worktime }}</p>
+  <p>月休：{{ post.holiday }}</p>
+  <p>工司福利：{{ post.welfare }}</p>
+  <p>薪資範圍：{{ post.salary }}</p>
+  <p>需求人數：{{ post.number }}</p>
+  <p>聯絡人/連絡方式：{{ post.contact }}</p>
+
+
+  <p>{{ post.body }}</p>
+  <ul>
+        <li><a href="/">返回</a></li>
+  	<li><a href="/post/{{ post._id.toString() }}/edit">修改</a></li>
+  	<li><a href="/post/{{ post._id.toString() }}/delete">刪除</a></li>
+  </ul>
+{% endblock %}

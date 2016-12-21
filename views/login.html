@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block title %}人力銀行{% endblock %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>koa-passport example</title>
+</head>
+<body>
+  <form action="/login" method="post">
+  <div class="form-group">
+    <input type="hidden" name="_csrf" value="{csrfToken}"/>
+    <p>
+      <label>Username:
+        <input type="text" name="username" value="test" />
+      </label>
+    </p>
+    <p>
+      <label>Password:
+        <input type="password" name="password" value="test" />
+      </label>
+    </p>
+    <p>
+      <button type="submit">Log In</button>
+    </p>
+    <p>
+      <a href="/auth/facebook">Sign in with Facebook</a> <a href="/auth/twitter">Sign in with Twitter</a> <a href="/auth/google">Sign in with Google</a>
+    </p>
+  </form>
+  <!--
+  <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+-->
+</body>
+</html>
+{% endblock %}
