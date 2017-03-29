@@ -1,0 +1,141 @@
+{% extends '../layout.html' %}
+    {% block content %}
+    
+    <!-- right column -->
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">修改資料表</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form action="/admin/update/{{post._id.toString()}}" method="post" class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">職稱</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="職稱" value="{{post.title}}" name="title">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">公司</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="公司" value="{{post.company}}" name="company">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">工作內容</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="工作內容" value="{{post.content}}" name="content">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">條件</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="條件" value="{{post.condition}}" name="condition">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">所在城市</label>
+                        <div class="col-sm-10">
+                            <select class="form-control select2" style="width: 100%;" name="city">
+                                <option selected="selected">{{post.city}}</option>
+                                <option>台北市</option>
+                                <option>新北市</option>
+                                <option>基隆市</option>
+                                <option>桃園市</option>
+                                <option>新竹縣</option>
+                                <option>新竹市</option>
+                                <option>苗栗縣</option>
+                                <option>台中市</option>
+                                <option>彰化縣</option>
+                                <option>南投縣</option>
+                                <option>雲林縣</option>
+                                <option>嘉義縣</option>
+                                <option>嘉義市</option>
+                                <option>台南市</option>
+                                <option>高雄市</option>
+                                <option>屏東縣</option>
+                                <option>宜蘭縣</option>
+                                <option>花蓮縣</option>
+                                <option>台東縣</option>
+                                <option>澎湖縣</option>
+                                <option>連江縣</option>
+                            </select>
+                        </div>
+              </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">地址</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="地址" value="{{post.work.place}}" name="workplace">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">工作時間</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="工作時間" value="{{post.worktime}}" name="worktime">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">月休</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="月休" value="{{post.holiday}}" name="holiday">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">薪資及福利</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="薪資及福利" value="{{post.salary}}" name="salary">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">需求人數</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="需求人數" value="{{post.number}}" name="number">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">聯絡方式</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="聯絡方式" value="{{post.contact}}" name="contact">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">其他備註</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="其他備註" value="{{post.other}}" name="other">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> 同意 <a href="#">服務條款</a>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                
+                <button type="button" onclick="window.location.href='/admin'" class="btn btn-default">取消</button>
+                <button type="submit" class="btn btn-info pull-right">送出</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+    {% endblock %}

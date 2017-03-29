@@ -1,0 +1,143 @@
+{% extends '../layout.html' %}
+{% block content %}
+<!-- /.col -->
+<div>
+        <div class="col-md-12">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <i class="fa fa-text-width"></i>
+
+              <h3 class="box-title">工作內容</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">發表者</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.author}}</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">公司</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.company}}</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">發布日期</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.time|date('Y-m-d',-480)}}</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">工作內容</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.content}}</label>
+                  </div>
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <div class="col-md-12">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <i class="fa fa-text-width"></i>
+
+              <h3 class="box-title">職缺條件</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">條件</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.condition}}</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">其他</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.other}}</label>
+                  </div>
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <div class="col-md-12">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <i class="fa fa-text-width"></i>
+
+              <h3 class="box-title">應徵方式</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">所在地址</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.city}}{{post.workplace}}</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">聯絡方式</label>
+
+                  <div class="col-sm-10">
+                    <label class="col-sm-2 control-label">{{post.contact}}</label>
+                  </div>
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+              
+        <!--留言-->
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                <h3 class="box-title">評論</h3>
+                </div>
+                <table class="table table-hover">
+                    {% for showcmt in showcmts %}
+                    <tr>
+                        <td class="col-sm-1">{{loop.index}}</td>
+                        <td class="col-sm-2">{{showcmt.author}}</td>
+                        <td class="col-sm-1">:</td>         
+                        <td class="col-sm-5">{{showcmt.content}}</td>
+                        <td class="col-sm-3">{{showcmt.time|date('Y-m-d H:i:s',-480)}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                    {% if username %}
+                    <form action="/article/comment/{{post._id.toString()}}" method="post">          
+                        <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" name="content">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info btn-flat">送出</button>
+                                </span>
+                        </div>
+
+                    </form>
+                    {% else %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+            
+        
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends '../layout.html' %}
+{% block content %}
+<div class="box">
+	<div class="box-body table-responsive no-padding">
+    	<table class="table table-hover">
+        	<tr>
+            	<th>編號</th>
+                <th>職稱</th>
+                <th>公司</th>
+                <th>日期</th>
+                <th>觀看次數</th>
+                <th>操作</th>
+            </tr>
+            	{% for post in posts %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.company}}</td>            
+                <td>{{post.time|date('Y-m-d H:i:s',-480)}}</td>
+                <td>{{post.views}}</td>
+                <td>
+		    		
+
+					<button type="button" onclick="window.location.href='/article/{{post.id}}'" class="btn btn-default" style="width:72px;height:24px;font-size:12px">查看文章</button>
+					<button type="button" onclick="window.location.href='/admin/edit/{{post.id}}'" class="btn btn-default" style="width:38px;height:24px;font-size:12px">編輯</button>
+					<button type="button" onclick="window.location.href='/admin/delete?id={{post.id}}'" class="btn btn-default" style="width:38px;height:24px;font-size:12px">刪除</button>
+				</td>
+            </tr>
+                {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

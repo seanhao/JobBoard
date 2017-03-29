@@ -1,0 +1,119 @@
+{% extends '../layout.html' %}
+    {% block content %}
+    
+    <!-- right column -->
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">修改個人資料</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form action="/admin/profile/update" method="post" class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">姓名</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="姓名" value="{{user.name}}" name="name">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">生日</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="生日" value="{{user.date_birth}}" name="date_birth">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">出生地</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="出生地" value="{{user.place_birth}}" name="place_birth">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">籍貫</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="籍貫" value="{{user.nationality}}" name="nationality">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">婚姻狀況</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="婚姻狀況" value="{{user.marital_status}}" name="marital_status">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">現居住址</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="現居住址" value="{{user.address}}" name="address">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">聯絡電話</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="聯絡電話" value="{{user.contact_no}}" name="contact_no">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">電子郵件</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="電子郵件" value="{{user.email}}" name="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">經驗</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="經驗" value="{{user.work_exp}}" name="work_exp">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">學歷</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="學歷" value="{{user.education}}" name="education">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">證書</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="證書" value="{{user.certification}}" name="certification">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">語言</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="語言" value="{{user.language}}" name="language">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">技能</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="技能" value="{{user.skill}}" name="skill">
+                  </div>
+                </div>
+                
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                
+                <button type="button" onclick="window.location.href='/admin/profile'" class="btn btn-default">取消</button>
+                <button type="submit" class="btn btn-info pull-right">送出</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+    {% endblock %}

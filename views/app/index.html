@@ -1,0 +1,83 @@
+{% extends '../layout.html' %}
+{% block content %}
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header bg-red color-palette">
+              <h3 class="box-title">熱門工作</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th>職稱</th>
+                  <th>公司</th>
+                  <th>發表者</th>
+                  <th>日期</th>
+                  <th>觀看次數</th>
+                </tr>
+                {% for hotPost in hotPosts %}
+                <tr >
+                  <td><a href="/article/{{post.id}}"><a href="/article/{{hotPost.id}}">{{hotPost.title}}</a>
+                  </td>
+                  <td>{{post.company}}</td>
+                  <td>{{hotPost.author}}</td>
+                  <td>{{hotPost.time|date('Y-m-d',-480)}}</td>
+                  <td>{{hotPost.views}}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+          <!-- /.box -->
+    </div>
+</div>
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header bg-blue disabled color-palette">
+              <h3 class="box-title">工作列表</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th>職稱</th>
+                  <th>公司</th>
+                  <th>發表者</th>
+                  <th>日期</th>
+                  <th>觀看次數</th>
+                </tr>
+                {% for post in posts %}
+                <tr>
+                  <td><a href="/article/{{post.id}}">{{post.title}}</td>
+                  <td>{{post.company}}</td>
+                  <td>{{post.author}}</td>
+                  <td>{{post.time|date('Y-m-d',-480)}}</td>
+                  <td>{{post.views}}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+          <!-- /.box -->
+    </div>
+</div>
+{% endblock %}
