@@ -131,15 +131,19 @@
                 <i class="fa fa-comments"></i>
                 <h3 class="box-title">評論</h3>
                 </div>
+
                 <table class="table table-hover">
                     {% for showcmt in showcmts %}
                     <tr>
                         <td class="col-sm-1">&emsp;{{loop.index}}</td>
-                        <td class="col-sm-">{{showcmt.author}}</td>
-                        <td class="col-sm-1">:</td>         
+                        <td class="col-sm-"><a href="#" class="name">{{showcmt.author}}</a></td>
+                                
                         <td class="col-sm-5">{{showcmt.content}}</td>
-                        <td class="col-sm-3">{{showcmt.time|date('Y-m-d H:i:s',-480)}}</td>
+                        <td class="col-sm-3"><small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{showcmt.time|date('Y-m-d H:i:s',-480)}}</small></td>
                     </tr>
+                    <div class="box-body chat" id="chat-box">
+            
+              
                     {% endfor %}
                 </table>
                     {% if username %}
