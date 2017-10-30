@@ -3,6 +3,18 @@ var models=require('../../models/models.js');
 module.exports={
 	home:function *(next) {
 		try {
+			if (this.session.priority>1){
+				var posts= yield models.Article.find({}).sort({_id:-1});
+				console.log(posts)
+				console.log(posts.title)
+				yield this.render('admin/admin.html',{
+				posts:posts,
+				title:'所有使用者工作管理',
+				title_eng:'Job Admin',
+				username:this.session.username
+			});
+			}
+			else{
 			var posts= yield models.Article.find({author:this.session.username});
 			console.log(posts)
 			console.log(posts.title)
@@ -11,7 +23,7 @@ module.exports={
 				title:'工作管理',
 				title_eng:'Job manager',
 				username:this.session.username
-			});
+			});}
 		} catch(e) {
 			this.body='錯誤';
 			console.error(e);

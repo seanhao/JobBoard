@@ -11,6 +11,7 @@ module.exports={
 				username:this.request.body.username,
 				password:this.request.body.password,
 				email:this.request.body.email,
+				priority: 1,//一般使用者權限值=1
 			};
 			var md5=crypto.createHash('md5');
 			user.salt=new Date()+user.username;//md5 salt

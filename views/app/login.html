@@ -33,20 +33,20 @@
   <div class="login-box-body">
     <p class="login-box-msg">請輸入帳號密碼登入</p>
 
-    <form action="/handleLogin" method="post">
+    <form action="/handleLogin" method="post" id="login">
       <div class="form-group has-feedback">
-        <input type="text" name="username"  class="form-control" placeholder="帳號">
+        <input type="text" name="username" id="username" class="form-control" placeholder="帳號">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" name="password" class="form-control" placeholder="密碼">
+        <input type="password" name="password" id="password" class="form-control" placeholder="密碼">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> 記住密碼
+              <input type="checkbox" name="remember" id="remember" checked="true"> 記住我
             </label>
           </div>
         </div>
@@ -87,6 +87,38 @@
       increaseArea: '20%' // optional
     });
   });
+  $(document).ready(function() {
+
+        var remember = $.cookie('remember');
+        if (remember == 'true') 
+        {
+            var username = $.cookie('username');
+            var password = $.cookie('password');
+            // autofill the fields
+            $('#username').val(username);
+            $('#password').val(password);
+        }
+
+
+    $("#login").submit(function() {
+        if ($('#remember').is(':checked')) {
+            var username = $('#username').val();
+            var password = $('#password').val();
+
+            // set cookies to expire in 14 days
+            $.cookie('username', username, { expires: 14 });
+            $.cookie('password', password, { expires: 14 });
+            $.cookie('remember', true, { expires: 14 });                
+        }
+        else
+        {
+            // reset cookies
+            $.cookie('username', null);
+            $.cookie('password', null);
+            $.cookie('remember', null);
+        }
+  });
+});
 </script>
 </body>
 </html>

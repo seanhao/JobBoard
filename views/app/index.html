@@ -71,6 +71,10 @@
                   <td>{{post.author}}</td>
                   <td>{{post.time|date('Y-m-d',-480)}}</td>
                   <td>{{post.views}}</td>
+                  <!--管理權限-->
+                  {% if priority >1 %} 
+                  <td><button type="button" onclick="window.location.href='/delete?id={{post.id}}'" class="btn btn-danger" style="width:40px;height:24px;font-size:12px">刪除</button></td>
+                  {% endif %}
                 </tr>
                 {% endfor %}
               </table>

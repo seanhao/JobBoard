@@ -15,6 +15,9 @@ module.exports=function (router) {
 	//登入
 	router.get('/login',login.home);
 	router.post('/handleLogin',login.handleLogin);
+
+	//super delete
+	router.get('/delete',home.delete);
     
     //評論
     router.post('/article/comment/:id',detail.comment);
