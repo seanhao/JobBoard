@@ -20,7 +20,7 @@ module.exports={
 			if (password===user.password) {
 				this.session.username=username;
 				this.session.priority=user.priority;
-				console.log("使用者權限:"+this.session.priority);
+				//console.log("使用者權限:"+this.session.priority);
 				this.redirect('/');
 			}else{
 				this.body='密碼錯誤';

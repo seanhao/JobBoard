@@ -11,7 +11,8 @@ module.exports={
 				username:this.request.body.username,
 				password:this.request.body.password,
 				email:this.request.body.email,
-				priority: 1,//一般使用者權限值=1
+				priority: 1,//一般使用者權限值=1 欲創造管理者使用mongo輸入以下指令
+				//db.users.update( { "username": "使用者名稱" },{ $set : { priority :2} })
 			};
 			var md5=crypto.createHash('md5');
 			user.salt=new Date()+user.username;//md5 salt
