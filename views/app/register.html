@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,22 +34,26 @@
   <div class="register-box-body">
     <p class="login-box-msg">創立新帳號</p>
 
-    <form action="/handleRegister" method="post">
+    <form action="/handleRegister" method="post" name="handleRegister">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="請輸入帳號" name="username">
+        <input type="text" class="form-control" placeholder="請輸入8~16字元長度的帳號" name="username" maxlength="16">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="請輸入Email" name="email">
+        <input type="email" class="form-control" placeholder="請輸入Email" name="email" maxlength="24">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="請輸入密碼" name="password">
+        <input type="password" class="form-control" placeholder="請輸入8~16字元長度包含英數字" name="password" maxlength="16">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="重新輸入密碼">
+        <input type="password" class="form-control" placeholder="重新輸入密碼" name="pwcheck">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+      <div class="g-recaptcha" data-sitekey="6LensToUAAAAAAUSUr-0IsWHv19Zif8X6tO9wvkR"> 
+      </div>
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -60,7 +65,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">創立</button>
+          <button type="submit" onclick="return Validate(this.form)" class="btn btn-primary btn-block btn-flat">創立</button>
         </div>
         <!-- /.col -->
       </div>
@@ -93,5 +98,52 @@
     });
   });
 </script>
+<script>
+
+function Validate(form)  {  
+
+  var usernameformat = /(?=.*\d).{8,}/
+  var emailformat = /[\w-.]+@[\w-]+(.[\w_-]+)+/
+  var passwordformat = /^(?!.*[^a-zA-Z0-9])(?=.*\d)(?=.*[a-zA-Z]).{8,12}$/
+    if(form.username.value.match(usernameformat))  
+    {  
+        if(form.email.value.match(emailformat))  
+        {  
+            if(form.password.value.match(passwordformat))  
+            {  
+                if(form.password.value!=form.pwcheck.value)  
+                {  
+                    alert("兩次輸入密碼不符");  
+                    form.pwcheck.focus();  
+                    return false;
+                }  
+                else  
+                {  
+                    return true; 
+                }
+            }  
+            else  
+            {  
+                alert("密碼須包含8~16位元英數字");  
+                form.password.focus();  
+                return false;  
+            }
+        }  
+        else  
+        {  
+            alert("信箱格式不符");
+            form.email.focus();  
+            return false;  
+        }
+    }  
+    else  
+    {  
+        alert("帳號須為8~16字元");  
+        form.username.focus(); 
+        return false;  
+    }
+  
+ }     
+</script>  
 </body>
 </html>
