@@ -11,7 +11,7 @@ module.exports=function (router) {
 	//註冊
 	router.get('/register',register.home);
 	router.post('/handleRegister',register.handleRegister);
-
+	router.get('/verification',register.verification);
 	//登入
 	router.get('/login',login.home);
 	router.post('/handleLogin',login.handleLogin);
