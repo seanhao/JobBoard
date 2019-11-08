@@ -6,7 +6,7 @@ var transporter = nodemailer.createTransport({
  service: 'gmail',
  auth: {
         user: 'jobboard.ga@gmail.com',
-        pass: 'yourpassword'
+        pass: 'like0406job'
     }
 });
 //Allow less secure apps: https://myaccount.google.com/lesssecureapps
@@ -25,6 +25,19 @@ module.exports={
 				email:this.request.body.email,
 				priority: 1,//一般使用者權限值=1 欲創造管理者使用mongo輸入以下指令
 				//db.users.update( { "username": "使用者名稱" },{ $set : { priority :2} })
+				//尚未填寫資料
+				name: '尚未填寫',
+    			date_birth: '尚未填寫',
+    			place_birth: '尚未填寫',
+    			nationality: '尚未填寫',
+    			marital_status: '尚未填寫',
+    			address: '尚未填寫',
+    			contact_no: '尚未填寫',
+    			work_exp: '尚未填寫',
+    			education: '尚未填寫',
+    			certification: '尚未填寫',
+    			language: '尚未填寫',
+    			skill: '尚未填寫',
 			};
 			var md5=crypto.createHash('md5');
 			user.salt=new Date()+user.username;//md5 salt
@@ -40,7 +53,7 @@ module.exports={
   				from: 'Jobboard.ga <jobboard.ga@gmail.com>', // sender address
   				to: this.request.body.email, // list of receivers
   				subject: '驗證您的Jobboard.ga信箱', // Subject line
-  				html: '<p>點擊 <a href="http://localhost:3000/verification">此處</a> 進行驗證，已開啟發文留言權限</p>'// plain text body
+  				html: '<p>點擊 <a href="http://jobboard.ga/verification">此處</a> 進行驗證，開啟發文留言權限</p>'// plain text body
 				};
 				//html: '<p>點擊 <a href="http://localhost:3000/verification' + user.password + '">此處</a> 進行驗證，已開啟發文留言權限</p>'
 				transporter.sendMail(mailOptions, function (err, info) {

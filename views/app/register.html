@@ -105,7 +105,7 @@ function Validate(form)  {
 
   var usernameformat = /(?=.*\d).{8,}/
   var emailformat = /[\w-.]+@[\w-]+(.[\w_-]+)+/
-  var passwordformat = /^(?!.*[^a-zA-Z0-9])(?=.*\d)(?=.*[a-zA-Z]).{8,12}$/
+  var passwordformat = /^(?!.*[^a-zA-Z0-9])(?=.*\d)(?=.*[a-zA-Z]).{8,16}$/
     if(form.username.value.match(usernameformat))  
     {  
         if(form.email.value.match(emailformat))  
@@ -119,8 +119,9 @@ function Validate(form)  {
                     return false;
                 }  
                 else  
-                {  
-                    return true; 
+                {   
+                    return true;                   
+                     
                 }
             }  
             else  
